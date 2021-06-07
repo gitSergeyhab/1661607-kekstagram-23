@@ -59,22 +59,23 @@ const createComment = () => {
   };
 };
 
-const createCommentArray = () => {
-  const commenIdArray = [];
-  for (let ind = 0; ind < getRandomInt(1, COMMENT_MAX_LENGTH); ind++) {
-    commenIdArray.push(createComment());
-  }
-  return commenIdArray;
-};
+// const createCommentArray = () => {
+//   const commenIdArray = [];
+//   for (let ind = 0; ind < getRandomInt(1, COMMENT_MAX_LENGTH); ind++) {
+//     commenIdArray.push(createComment());
+//   }
+//   return commenIdArray;
+// };
 
 const createPhotoDiscription = (index) => ({
   id: index + 1,
   url: `photos/${index + 1}.jpg`,
   description: `this is the discription of photo № ${index + 1}`,
   likes: getRandomInt(15, 200),
-  comments: createCommentArray(),
+  comments: new Array(getRandomInt(1, COMMENT_MAX_LENGTH)).fill(null).map(() => createComment()),
 });
 
 const photoDiscriptions = new Array(ARRAY_LENGTH).fill(null).map((photo, index) => createPhotoDiscription(index));
+photoDiscriptions;
 
-console.log(photoDiscriptions);
+// console.log(photoDiscriptions);
