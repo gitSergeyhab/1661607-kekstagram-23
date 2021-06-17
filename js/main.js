@@ -1,5 +1,4 @@
-import {createPhotoDiscriptions} from './modules/create-photo-discriptions.js';
+import {createPictureFragment} from './modules/create-picture-fragment.js';
 
-const photoDiscriptions = createPhotoDiscriptions();
+document.querySelector('.pictures').append(createPictureFragment());
 
-console.log(photoDiscriptions);
