@@ -1,5 +1,5 @@
 import {ARRAY_LENGTH, ID_COMMENT_COUNT, COMMENT_MAX_LENGTH, ID_AUTHOR_COUNT, messages, names} from './data.js';
-import {getRandomInt, checkLength} from './util.js';
+import {getRandomInt} from './util.js';
 
 const createPhotoDiscriptions = () => {
   const createMessage = (array) => {
