@@ -9,7 +9,7 @@ const validateForm = () => {
   const commentArea = form.querySelector('.text__description');
   const hashTagInput = form.querySelector('.text__hashtags');
 
-  imgOverlay.classList.remove('hidden'); // for del
+  // imgOverlay.classList.remove('hidden'); // for del
 
   const closeModal = () => {
     uploadFile.value = null;

@@ -25,8 +25,8 @@ const showFullScreenImg = (id) => {
     bigPicture.querySelector('.social__comments').innerHTML = commentsHtml;
     bigPicture.querySelector('.social__caption').innerHTML = description;
 
-    bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-    bigPicture.querySelector('.comments-loader').classList.add('hidden');
+    // bigPicture.querySelector('.social__comment-count').classList.add('hidden');
+    // bigPicture.querySelector('.comments-loader').classList.add('hidden');
   }
 };
 
