@@ -1,41 +1,8 @@
+import {commentArea, hashTagInput} from './form.js';
+
 const MAX_LEN_COMMENT = 140;
 
 const validateForm = () => {
-  const form = document.querySelector('.img-upload__form');
-  const imgOverlay = form.querySelector('.img-upload__overlay');
-  const uploadFile = form.querySelector('#upload-file');
-  const btnCloseModal = form.querySelector('.img-upload__cancel');
-  const btniUploadImgSubmit = form.querySelector('.img-upload__submit');
-  const commentArea = form.querySelector('.text__description');
-  const hashTagInput = form.querySelector('.text__hashtags');
-
-  // imgOverlay.classList.remove('hidden'); // for del
-
-  const closeModal = () => {
-    uploadFile.value = null;
-    imgOverlay.classList.add('hidden');
-    document.body.classList.remove('modal-open');
-    btnCloseModal.removeEventListener('click', closeModal);
-    btniUploadImgSubmit.removeEventListener('click', closeModal);
-    document.removeEventListener('keydown', closeModal);
-  };
-
-  uploadFile.addEventListener('change', () => {
-    imgOverlay.classList.remove('hidden');
-    btnCloseModal.addEventListener('click', closeModal);
-    btniUploadImgSubmit.addEventListener('click', closeModal);
-    document.addEventListener('keydown', (evt) => {
-      if (evt.keyCode === 27 && commentArea !== document.activeElement) {
-        closeModal(); // закрыть попап по эскейпу, если нет фокуса на поле коментария
-      }
-    });
-    document.body.classList.add('modal-open');
-  });
-
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-  });
-
   commentArea.addEventListener('input', () => {
     if (commentArea.value.length > MAX_LEN_COMMENT) {
       commentArea.setCustomValidity(`Комментарий слишком длинный. Удалите ${commentArea.value.length - MAX_LEN_COMMENT} символов`);
