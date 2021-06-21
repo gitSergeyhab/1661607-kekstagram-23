@@ -9,17 +9,20 @@ const closeModalForm = () => {
     document.removeEventListener('keydown', closeModal);
   };
 
-  uploadFile.addEventListener('change', () => {
-    imgOverlay.classList.remove('hidden');
-    btnCloseModal.addEventListener('click', closeModal);
-    btniUploadImgSubmit.addEventListener('click', closeModal);
-    document.body.classList.add('modal-open');
-  });
-
-  document.addEventListener('keydown', (evt) => {
+  const onEscCloseModal = (evt) => {
     if (evt.keyCode === 27 && commentArea !== document.activeElement) {
       closeModal(); // закрыть попап по эскейпу, если нет фокуса на поле коментария
     }
+  };
+
+  const onBstnCloseModal = closeModal;
+
+  uploadFile.addEventListener('change', () => {
+    imgOverlay.classList.remove('hidden');
+    document.body.classList.add('modal-open');
+    btnCloseModal.addEventListener('click', onBstnCloseModal);
+    btniUploadImgSubmit.addEventListener('click', onBstnCloseModal);
+    document.addEventListener('keydown', onEscCloseModal);
   });
 
   form.addEventListener('submit', () => {
