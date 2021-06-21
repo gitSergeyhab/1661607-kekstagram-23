@@ -1,10 +1,11 @@
 import {photoDiscriptions} from './create-picture-fragment.js';
+import {uploadCommentsListener} from './upload-comments-listener.js';
 
 const showFullScreenImg = (id) => {
   const bigPicture = document.querySelector('.big-picture');
 
   const createCommentElement = ({avatar, message, name}) => `
-  <li class="social__comment">
+  <li class="social__comment hidden">
     <img
         class="social__picture"
         src="${avatar}"
@@ -22,11 +23,10 @@ const showFullScreenImg = (id) => {
     bigPicture.querySelector('.big-picture__img img').src = url;
     bigPicture.querySelector('.likes-count').textContent = likes;
     bigPicture.querySelector('.comments-count').textContent = comments.length;
-    bigPicture.querySelector('.social__comments').innerHTML = commentsHtml;
+    const commentsList = bigPicture.querySelector('.social__comments');
+    commentsList.innerHTML = commentsHtml;
     bigPicture.querySelector('.social__caption').innerHTML = description;
-
-    // bigPicture.querySelector('.social__comment-count').classList.add('hidden');
-    // bigPicture.querySelector('.comments-loader').classList.add('hidden');
+    uploadCommentsListener(commentsList);
   }
 };
 

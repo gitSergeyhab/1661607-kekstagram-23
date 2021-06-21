@@ -15,13 +15,13 @@ const closeModalForm = () => {
     }
   };
 
-  const onBstnCloseModal = closeModal;
+  const onBtnsCloseModal = closeModal;
 
   uploadFile.addEventListener('change', () => {
     imgOverlay.classList.remove('hidden');
     document.body.classList.add('modal-open');
-    btnCloseModal.addEventListener('click', onBstnCloseModal);
-    btniUploadImgSubmit.addEventListener('click', onBstnCloseModal);
+    btnCloseModal.addEventListener('click', onBtnsCloseModal);
+    btniUploadImgSubmit.addEventListener('click', onBtnsCloseModal);
     document.addEventListener('keydown', onEscCloseModal);
   });
 

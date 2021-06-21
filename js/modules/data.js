@@ -1,6 +1,6 @@
 const ARRAY_LENGTH = 25;
 const ID_COMMENT_COUNT = 1000;
-const COMMENT_MAX_LENGTH = 4;
+const COMMENT_MAX_LENGTH = 16;
 const ID_AUTHOR_COUNT = 6;
 
 
