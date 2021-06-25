@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 import {commentArea, hashTagInput} from './form.js';
 
 const MAX_LEN_COMMENT = 140;

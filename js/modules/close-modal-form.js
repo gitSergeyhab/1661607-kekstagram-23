@@ -7,6 +7,7 @@ const closeModalForm = () => {
     btnCloseModal.removeEventListener('click', closeModal);
     btniUploadImgSubmit.removeEventListener('click', closeModal);
     document.removeEventListener('keydown', closeModal);
+    form.reset();
   };
 
   const onEscCloseModal = (evt) => {
@@ -15,7 +16,9 @@ const closeModalForm = () => {
     }
   };
 
-  const onBtnsCloseModal = closeModal;
+  const onBtnsCloseModal = () => {
+    closeModal();
+  };
 
   uploadFile.addEventListener('change', () => {
     imgOverlay.classList.remove('hidden');
@@ -26,7 +29,7 @@ const closeModalForm = () => {
   });
 
   form.addEventListener('submit', () => {
-    setTimeout(() => uploadFile.value = null, 0);
+    form.reset();
   });
 };
 

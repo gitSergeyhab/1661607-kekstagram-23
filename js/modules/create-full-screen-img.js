@@ -1,7 +1,7 @@
 import {photoDiscriptions} from './create-picture-fragment.js';
 import {uploadCommentsListener} from './upload-comments-listener.js';
 
-const showFullScreenImg = (id) => {
+const createFullScreenImg = (id) => {
   const bigPicture = document.querySelector('.big-picture');
 
   const createCommentElement = ({avatar, message, name}) => `
@@ -30,4 +30,4 @@ const showFullScreenImg = (id) => {
   }
 };
 
-export {showFullScreenImg};
+export {createFullScreenImg};
