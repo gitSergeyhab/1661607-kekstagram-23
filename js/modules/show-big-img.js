@@ -1,7 +1,6 @@
 /* eslint-disable no-use-before-define */
 
 import {createFullScreenImg} from './create-full-screen-img.js';
-// import {hangCloseHandler} from './close-modal.js';
 
 const showBigImg = () => {
   const bigPicture = document.querySelector('.big-picture');
@@ -14,7 +13,6 @@ const showBigImg = () => {
   };
 
   const onModalEsc = (evt) => {
-    evt.preventDefault();
     if (evt.keyCode === 27) {
       closeBigImgModal();
     }
@@ -35,8 +33,8 @@ const showBigImg = () => {
   }
 
   picture.addEventListener('click', (evt) => {
-    const target = evt.target;
-    if (target.closest('.picture')) {
+    const target = evt.target.closest('.picture');
+    if (target) {
       createFullScreenImg(target.dataset.id);
       openBigImgModal();
     }
