@@ -2,6 +2,8 @@
 import {commentArea, hashTagInput} from './form.js';
 
 const MAX_LEN_COMMENT = 140;
+const TAGS_MAX = 5;
+
 
 const validateForm = () => {
   commentArea.addEventListener('input', () => {
@@ -28,7 +30,7 @@ const validateForm = () => {
 
   const checkhashTags = (value) => {
     const values = value.trim().split(' ').map((val) => val.toLowerCase());
-    const tagsGoodCount = values.length < 6;
+    const tagsGoodCount = values.length <= TAGS_MAX;
     const tagsGoodPattern = values.reduce((acc, elem) => acc && hashtagPattern.test(elem), true);
     return tagsGoodCount && tagsGoodPattern && compareTags(values);
   };

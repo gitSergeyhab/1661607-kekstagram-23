@@ -5,7 +5,7 @@ const photoDiscriptions = createPhotoDiscriptions();
 
 const createPictureFragment = () => {
   const fragmentPuctures = document.createDocumentFragment();
-  photoDiscriptions.forEach((pd) => fragmentPuctures.append(createPicture(pd)));
+  photoDiscriptions.forEach((discription) => fragmentPuctures.append(createPicture(discription)));
   return fragmentPuctures;
 };
 

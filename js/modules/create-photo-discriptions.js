@@ -1,4 +1,4 @@
-import {ARRAY_LENGTH, ID_COMMENT_COUNT, COMMENT_MAX_LENGTH, ID_AUTHOR_COUNT, messages, names} from './data.js';
+import {ARRAY_LENGTH, ID_COMMENT_COUNT, COMMENT_MAX_LENGTH, ID_AUTHOR_COUNT, LIKES_MAX, messages, names} from './data.js';
 import {getRandomInt} from './util.js';
 
 const createPhotoDiscriptions = () => {
@@ -33,7 +33,7 @@ const createPhotoDiscriptions = () => {
     id: index + 1,
     url: `photos/${index + 1}.jpg`,
     description: `this is the discription of photo № ${index + 1}`,
-    likes: getRandomInt(15, 200),
+    likes: getRandomInt(0, LIKES_MAX),
     comments: new Array(getRandomInt(1, COMMENT_MAX_LENGTH)).fill(null).map(() => createComment()),
   });
 

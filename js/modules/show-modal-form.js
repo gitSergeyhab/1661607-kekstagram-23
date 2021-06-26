@@ -33,9 +33,9 @@ const showModalForm = () => {
     openModalForm();
   });
 
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault(); // закрывать модалку или нет?
-    setTimeout(() => form.reset(), 0);
+  form.addEventListener('submit', () => {
+    // evt.preventDefault();
+    setTimeout(() => form.reset(), 0);// чтоб сбросить значения в форме уже после отправки на сервер
   });
 };
 

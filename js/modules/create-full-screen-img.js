@@ -14,10 +14,10 @@ const createFullScreenImg = (id) => {
     <p class="social__text">${message}</p>
 </li>`;
 
-  const needPhoto = photoDiscriptions.filter((discript) => discript.id === +id)[0];
-  if(needPhoto) {
+  const needPhoto = photoDiscriptions.filter((discript) => discript.id === +id);
+  if(needPhoto && needPhoto.length) {
     bigPicture.classList.remove('hidden');
-    const {url, likes, comments, description} = needPhoto;
+    const {url, likes, comments, description} = needPhoto[0];
     const commentsHtml = comments.reduce((acc, elem) => acc + createCommentElement(elem), '');
 
     bigPicture.querySelector('.big-picture__img img').src = url;
