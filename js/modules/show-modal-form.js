@@ -1,6 +1,8 @@
 /* eslint-disable no-use-before-define */
 
 import {form, commentArea, imgOverlay, btnCloseModal, uploadFile} from './form.js';
+import {KEYCODE_ESC} from './data.js';
+
 
 const showModalForm = () => {
   const onCloseBtnForm = (evt) => {
@@ -9,7 +11,7 @@ const showModalForm = () => {
   };
 
   const onEscForm = (evt) => {
-    if(evt.keyCode === 27 && commentArea !== document.activeElement) {
+    if(evt.keyCode === KEYCODE_ESC && commentArea !== document.activeElement) {
       closeModalForm();
     }
   };

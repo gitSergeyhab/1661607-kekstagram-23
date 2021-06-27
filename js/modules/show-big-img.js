@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 
 import {createFullScreenImg} from './create-full-screen-img.js';
+import {KEYCODE_ESC} from './data.js';
 
 const showBigImg = () => {
   const bigPicture = document.querySelector('.big-picture');
@@ -13,7 +14,7 @@ const showBigImg = () => {
   };
 
   const onModalEsc = (evt) => {
-    if (evt.keyCode === 27) {
+    if (evt.keyCode === KEYCODE_ESC) {
       closeBigImgModal();
     }
   };
