@@ -2,7 +2,8 @@
 
 import {form, commentArea, imgOverlay, btnCloseModal, uploadFile} from './form.js';
 import {KEYCODE_ESC} from './data.js';
-
+import {setScaleValue} from './scale-image.js';
+// imgOverlay.classList.remove('hidden');
 
 const showModalForm = () => {
   const onCloseBtnForm = (evt) => {
@@ -17,6 +18,7 @@ const showModalForm = () => {
   };
 
   function openModalForm() {
+    setScaleValue();
     imgOverlay.classList.remove('hidden');
     document.body.classList.add('modal-open');
     btnCloseModal.addEventListener('click', onCloseBtnForm);
