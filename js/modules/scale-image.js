@@ -1,41 +1,37 @@
 const SCALE_CHANGE = 25;
-let scaleValue = 100;
+const state = {
+  scale: 100,
+};
 
 const imgScaleFieldset = document.querySelector('.img-upload__scale');
 const scalePlus = imgScaleFieldset.querySelector('.scale__control--bigger');
 const scaleMinus = imgScaleFieldset.querySelector('.scale__control--smaller');
 const scaleValueField = imgScaleFieldset.querySelector('.scale__control--value');
-const uploadImg = document.querySelector('.img-upload__preview');
+const uploadDivImg = document.querySelector('.img-upload__preview');
 
-const setScaleValue = () => scaleValueField.value = `${scaleValue}%`;
+const setScaleValue = (scale) => scaleValueField.value = `${scale}%`;
+
+const setScaleImg = (scale) => uploadDivImg.style.transform = `scale(${scale/100})`;
 
 const changeScaleValue = (sign) => {
-  scaleValue += (sign * SCALE_CHANGE);
-  setScaleValue();
+  state.scale += (sign * SCALE_CHANGE);
+  setScaleValue(state.scale);
 };
-
-const changeScaleImg = () => uploadImg.style.transform = `scale(${scaleValue/100})`;
 
 const changeImgSize = () => {
   scaleMinus.addEventListener('click', () => {
-    if (scaleValue > 25) {
+    if (state.scale > 25) {
       changeScaleValue(-1);
-      changeScaleImg();
+      setScaleImg(state.scale);
     }
   });
 
   scalePlus.addEventListener('click', () => {
-    if (scaleValue < 76) {
+    if (state.scale < 76) {
       changeScaleValue(1);
-      changeScaleImg();
+      setScaleImg(state.scale);
     }
   });
-  // const forms = document.forms;
-  // Array.from(forms).forEach(f => {
-  //   const ins = f.querySelectorAll('input');
-  //   ins.forEach(inp => console.log(inp));
-  // })
 };
 
-
-export {changeImgSize, setScaleValue};
+export {changeImgSize, setScaleValue, setScaleImg, state};

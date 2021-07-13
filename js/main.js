@@ -4,7 +4,7 @@ import {createPictureFragment} from './modules/create-picture-fragment.js';
 import {showModalForm} from './modules/show-modal-form.js';
 import {showBigImg} from './modules/show-big-img.js';
 import {changeImgSize} from './modules/scale-image.js';
-
+import './modules/slider.js';
 
 const picture = document.querySelector('.pictures');
 picture.append(createPictureFragment());
