@@ -1,7 +1,11 @@
 const SCALE_CHANGE = 25;
-const state = {
-  scale: 100,
+const DEFAULT_SCALE = 100;
+const sizesForChange = {
+  min: 25,
+  max: 76,
 };
+
+let stateScale = 100;
 
 const imgScaleFieldset = document.querySelector('.img-upload__scale');
 const scalePlus = imgScaleFieldset.querySelector('.scale__control--bigger');
@@ -14,24 +18,30 @@ const setScaleValue = (scale) => scaleValueField.value = `${scale}%`;
 const setScaleImg = (scale) => uploadDivImg.style.transform = `scale(${scale/100})`;
 
 const changeScaleValue = (sign) => {
-  state.scale += (sign * SCALE_CHANGE);
-  setScaleValue(state.scale);
+  stateScale += (sign * SCALE_CHANGE);
+  setScaleValue(stateScale);
 };
 
 const changeImgSize = () => {
   scaleMinus.addEventListener('click', () => {
-    if (state.scale > 25) {
+    if (stateScale > sizesForChange.max) {
       changeScaleValue(-1);
-      setScaleImg(state.scale);
+      setScaleImg(stateScale);
     }
   });
 
   scalePlus.addEventListener('click', () => {
-    if (state.scale < 76) {
+    if (stateScale < sizesForChange.max) {
       changeScaleValue(1);
-      setScaleImg(state.scale);
+      setScaleImg(stateScale);
     }
   });
 };
 
-export {changeImgSize, setScaleValue, setScaleImg, state};
+const setDefaultImgScale =  () => {
+  stateScale = DEFAULT_SCALE;
+  setScaleValue(stateScale);
+  setScaleImg(stateScale);
+};
+
+export {changeImgSize, setDefaultImgScale};

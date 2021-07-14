@@ -2,10 +2,10 @@
 
 import {form, commentArea, imgOverlay, btnCloseModal, uploadFile} from './form.js';
 import {KEYCODE_ESC} from './data.js';
-import {setScaleValue, setScaleImg, state} from './scale-image.js';
-import {setClassToloadImg, defaultStyleImg} from './slider.js';
+import {setDefaultImgScale} from './scale-image.js';
+import {setDefaultEffect} from './slider.js';
 
-imgOverlay.classList.remove('hidden');
+// imgOverlay.classList.remove('hidden');
 
 const showModalForm = () => {
   const onCloseBtnForm = (evt) => {
@@ -19,15 +19,9 @@ const showModalForm = () => {
     }
   };
 
-  const resetImgStyle = () => {
-    state.scale = 100;
-    setScaleValue(state.scale);
-    setScaleImg(state.scale);
-    setClassToloadImg(defaultStyleImg);
-  };
-
   function openModalForm() {
-    resetImgStyle();
+    setDefaultEffect();
+    setDefaultImgScale();
     imgOverlay.classList.remove('hidden');
     document.body.classList.add('modal-open');
     btnCloseModal.addEventListener('click', onCloseBtnForm);
