@@ -10,8 +10,8 @@ const getData = () => (
 );
 
 const postData = (form, showPostOk, showPostFail) => {
-  fetch('https://23.javascript.pages.academy/kekstagram ', {
-    body: new FormData(),
+  fetch('https://23.javascript.pages.academy/kekstagram', {
+    body: new FormData(form),
     method: 'post',
   })
     .then((response) => {
@@ -23,6 +23,6 @@ const postData = (form, showPostOk, showPostFail) => {
     })
     .then(showPostOk)
     .catch(showPostFail);
-}
+};
 
 export {getData, postData};

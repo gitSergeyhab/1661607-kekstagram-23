@@ -19,6 +19,7 @@ const onEscForm = (evt) => {
 };
 
 function openModalForm() {
+  setDefaultEffect();
   imgOverlay.classList.remove('hidden');
   document.body.classList.add('modal-open');
   btnCloseModal.addEventListener('click', onCloseBtnForm);
