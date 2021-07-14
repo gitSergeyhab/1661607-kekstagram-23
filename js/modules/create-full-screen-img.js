@@ -35,8 +35,8 @@ const createFullScreenImg = (id) => {
 
   getData()
     .then((res) => res.filter((discript) => discript.id === +id)) // фильтр полученных данных по айди
-    .then((res) => showOnePhoto(res))
-    .catch(showGetErrorMessage);;
+    .then(showOnePhoto)
+    .catch(showGetErrorMessage);
 };
 
 export {createFullScreenImg};

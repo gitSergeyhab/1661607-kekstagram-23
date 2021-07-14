@@ -24,7 +24,7 @@ const changeScaleValue = (sign) => {
 
 const changeImgSize = () => {
   scaleMinus.addEventListener('click', () => {
-    if (stateScale > sizesForChange.max) {
+    if (stateScale > sizesForChange.min) {
       changeScaleValue(-1);
       setScaleImg(stateScale);
     }
