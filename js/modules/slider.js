@@ -86,4 +86,4 @@ const changeEffect = (target) => {
 uploadEffectsField.addEventListener('change', (evt) => changeEffect(evt.target));
 
 
-export {setDefaultEffect};
+export {setDefaultEffect, uploadImg};

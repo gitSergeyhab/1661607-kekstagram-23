@@ -12,6 +12,9 @@ import {showGetErrorMessage, showPostSuccessMessage, showPostErrorMessage} from 
 import './modules/slider.js';
 
 import {getRandomArrayNoRepeat} from './modules/util.js';
+import {showChosenImg} from './modules/image.js';
+
+
 const defaultOption = (res) => res;
 
 const filterDefault = imgFilters.querySelector('#filter-default');
@@ -49,3 +52,5 @@ form.addEventListener('submit', (evt) => {
   evt.preventDefault();
   postData(form, showPostSuccessMessage, showPostErrorMessage);
 });
+
+showChosenImg();
