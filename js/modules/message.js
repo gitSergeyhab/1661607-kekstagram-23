@@ -8,6 +8,7 @@ const errorMessageBlock = document.querySelector('#error').content.querySelector
 const showGetErrorMessage = () => {
   const div = document.createElement('div');
   div.textContent = 'ALL IS DEAD!!!';
+  div.style.fontSize = '2.5rem';
   div.style.color = 'red';
   div.style.textAlign = 'center';
   footer.prepend(div);

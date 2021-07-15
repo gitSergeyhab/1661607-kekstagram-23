@@ -7,6 +7,11 @@ const getData = () => (
         throw new Error(response.status);
       }
     })
+    // .then(response => {
+    //   console.log(response);
+    //   return response;
+    // })
+
 );
 
 const postData = (form, showPostOk, showPostFail) => {

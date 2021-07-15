@@ -1,4 +1,3 @@
-// import {photoDiscriptions} from './create-picture-fragment.js';
 import {uploadCommentsListener} from './upload-comments-listener.js';
 import { getData } from './api.js';
 import {showGetErrorMessage} from './message.js';

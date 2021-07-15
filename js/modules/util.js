@@ -1,3 +1,5 @@
+const LENGTH_RANDOM_ARRAY = 10;
+
 const getRandomInt = (min, max) => {
   [min, max] = [
     Math.min(Math.abs(min), Math.abs(max)),
@@ -8,4 +10,15 @@ const getRandomInt = (min, max) => {
 
 const checkLength = (string, maxLength) => string.length <= maxLength;
 
-export {getRandomInt, checkLength};
+const getRandomArrayNoRepeat = (array) => {
+  const numbersArr = [];
+  while (numbersArr.length < LENGTH_RANDOM_ARRAY) {
+    const ranNum = getRandomInt(0, array.length - 1);
+    if (!numbersArr.length || numbersArr.every((num) => num !== ranNum)) {
+      numbersArr.push(ranNum);
+    }
+  }
+  return numbersArr.map((num) => array[num]);
+};
+
+export {getRandomInt, checkLength, getRandomArrayNoRepeat};
