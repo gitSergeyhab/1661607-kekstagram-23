@@ -26,10 +26,15 @@ const postData = (form, showPostOk, showPostFail) => {
   })
     .then((response) => {
       if (response.ok) {
-        return response.json;
+        console.log(response);
+        return response.json();
       } else {
         throw new Error(response.status);
       }
+    })
+    .then(response => {
+      console.log(response);
+      return response;
     })
     .then(showPostOk)
     .catch(showPostFail);

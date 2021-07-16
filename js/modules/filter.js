@@ -17,7 +17,20 @@ const filtersForm = document.querySelector('.img-filters__form');
 const imgFilters = document.querySelector('.img-filters');
 const filterBtns = imgFilters.querySelectorAll('.img-filters__button');
 
-const showFilter = () => imgFilters.classList.remove(INACTIVE_FILTERS_CLASS);
+const showFilter = () => {
+  // все создаваемые из загружаемых даммых картинки
+  const images = Array.from(document.images).filter((img) => img.classList.contains('picture__img'));
+
+  // счутчик уже загруженных
+  let counter = 0;
+  const onLoadImgCounter = () => {
+    counter++;
+    if (counter === images.length) {
+      imgFilters.classList.remove(INACTIVE_FILTERS_CLASS);
+    }
+  };
+  images.forEach((img) => img.addEventListener('load', onLoadImgCounter));
+};
 
 const countComment = (photo) => photo.comments.length;
 const sortByComment = (array) => array.sort((photo1, photo2) => countComment(photo2) - countComment(photo1));
@@ -55,4 +68,4 @@ const filter = () => {
   }));
 };
 
-export {filter, getOptionalFilterData};
+export {filter, getOptionalFilterData, showFilter};

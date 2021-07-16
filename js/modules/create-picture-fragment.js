@@ -7,9 +7,9 @@ const cleanPictures = () => {
   pictures.forEach((pic) => pic.remove());
 };
 
-const createPictureFragment = (responses) => {
+const createPictureFragment = (pics) => {
   const fragmentPuctures = document.createDocumentFragment();
-  responses.forEach((discription) => fragmentPuctures.append(createPicture(discription)));
+  pics.forEach((pic) => fragmentPuctures.append(createPicture(pic)));
   cleanPictures();
   return fragmentPuctures;
 };

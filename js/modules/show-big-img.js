@@ -1,5 +1,5 @@
 import {createFullScreenImg} from './create-full-screen-img.js';
-import {KEYCODE_ESC} from './setup.js';
+import {KEYCODE_ESC, classes} from './setup.js';
 
 let closeBigImgModal; // переопределю
 const showBigImg = () => {
@@ -19,15 +19,15 @@ const showBigImg = () => {
   };
 
   const openBigImgModal = () => {
-    document.body.classList.add('modal-open');
-    bigPicture.classList.remove('hidden');
+    document.body.classList.add(classes.open);
+    bigPicture.classList.remove(classes.hide);
     document.addEventListener('keydown', onModalEsc);
     btnCloseModal.addEventListener('click', onClickCloseBtn);
   };
 
   closeBigImgModal = () => {
-    document.body.classList.remove('modal-open');
-    bigPicture.classList.add('hidden');
+    document.body.classList.remove(classes.open);
+    bigPicture.classList.add(classes.hide);
     document.removeEventListener('keydown', onModalEsc);
     btnCloseModal.removeEventListener('click', onClickCloseBtn);
   };

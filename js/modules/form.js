@@ -4,5 +4,6 @@ const uploadFile = form.querySelector('#upload-file');
 const btnCloseModal = form.querySelector('.img-upload__cancel');
 const commentArea = form.querySelector('.text__description');
 const hashTagInput = form.querySelector('.text__hashtags');
+const uploadSubmit = form.querySelector('#upload-submit');
 
-export {form, commentArea, imgOverlay, btnCloseModal, uploadFile, hashTagInput};
+export {form, imgOverlay, btnCloseModal, uploadFile, commentArea, hashTagInput, uploadSubmit};

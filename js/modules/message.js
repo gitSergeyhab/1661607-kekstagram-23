@@ -7,7 +7,7 @@ const successMessageBlock = document.querySelector('#success').content.querySele
 const errorMessageBlock = document.querySelector('#error').content.querySelector('.error');
 
 const messageStyles = {
-  textContent: 'ALL IS DEAD!!!',
+  textContent: 'ВСЁ ПРОПАЛО',
   fontSize: '2.5rem',
   color: 'red',
   textAlign: 'center',

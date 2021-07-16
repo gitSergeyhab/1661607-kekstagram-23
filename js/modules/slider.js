@@ -51,6 +51,7 @@ slider.noUiSlider.on('update', (___, handle,  values) => {
       uploadImg.style.filter = `${style}(${values[handle]}px)`; break;
     default:
       uploadImg.style.filter = '';
+      effectLevelValue.value = '';
   }
 });
 
@@ -60,6 +61,7 @@ const setDefaultEffect = () => {
   const inputs = uploadEffectsField.querySelectorAll('input');
   inputs.forEach((input) => input.checked = input.id === defaultEffectId); // выставляю checked только у none
   uploadImg.style.filter = '';
+  effectLevelValue.value = '';
   sliderField.style.display = 'none';
 };
 
