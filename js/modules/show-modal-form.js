@@ -1,50 +1,49 @@
-/* eslint-disable no-use-before-define */
-
 import {form, commentArea, imgOverlay, btnCloseModal, uploadFile} from './form.js';
-import {KEYCODE_ESC} from './data.js';
+import {KEYCODE_ESC, classes} from './setup.js';
 import {setDefaultImgScale} from './scale-image.js';
 import {setDefaultEffect} from './slider.js';
 
-// imgOverlay.classList.remove('hidden');
+// сделал так, чтобы не ругался линтер и чтобы не нарушать критерий - не использовать разные способы объявления ф-ций:
+const modalMethods = {};
 
 const onCloseBtnForm = (evt) => {
   evt.preventDefault();
-  closeModalForm();
+  modalMethods.close();
 };
 
 const onEscForm = (evt) => {
   if(evt.keyCode === KEYCODE_ESC && commentArea !== document.activeElement) {
-    closeModalForm();
+    modalMethods.close();
   }
 };
 
-function openModalForm() {
+modalMethods.open = () => {
   setDefaultEffect();
-  imgOverlay.classList.remove('hidden');
-  document.body.classList.add('modal-open');
+  imgOverlay.classList.remove(classes.hide);
+  document.body.classList.add(classes.open);
   btnCloseModal.addEventListener('click', onCloseBtnForm);
   document.addEventListener('keydown', onEscForm);
-}
-
-const closeModalFormClases = () => {
-  imgOverlay.classList.add('hidden');
-  document.body.classList.remove('modal-open');
 };
 
-function closeModalForm() {
+const closeModalFormClases = () => {
+  imgOverlay.classList.add(classes.hide);
+  document.body.classList.remove(classes.open);
+};
+
+modalMethods.close = () => {
   setDefaultEffect();
   setDefaultImgScale();
   closeModalFormClases();
   btnCloseModal.removeEventListener('click', onCloseBtnForm);
   document.removeEventListener('keydown', onEscForm);
   form.reset();
-}
+};
 
 
 const showModalForm = () => {
   uploadFile.addEventListener('change', () => {
-    openModalForm();
+    modalMethods.open();
   });
 };
 
-export {showModalForm, closeModalForm, closeModalFormClases};
+export {showModalForm, modalMethods, closeModalFormClases};

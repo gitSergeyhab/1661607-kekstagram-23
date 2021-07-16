@@ -22,8 +22,8 @@ const slider = sliderField.querySelector('.effect-level__slider');
 const uploadEffectsField = document.querySelector('.img-upload__effects');
 const effectLevelValue = document.querySelector('.effect-level__value');
 
-
 const setClassToloadImg = (className) => uploadImg.className = className;
+
 // начальные настройки слайдера
 noUiSlider.create(slider, {
   range: {

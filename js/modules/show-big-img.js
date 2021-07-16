@@ -1,8 +1,7 @@
-/* eslint-disable no-use-before-define */
-
 import {createFullScreenImg} from './create-full-screen-img.js';
-import {KEYCODE_ESC} from './data.js';
+import {KEYCODE_ESC} from './setup.js';
 
+let closeBigImgModal; // переопределю
 const showBigImg = () => {
   const bigPicture = document.querySelector('.big-picture');
   const picture = document.querySelector('.pictures');
@@ -19,25 +18,25 @@ const showBigImg = () => {
     }
   };
 
-  function openBigImgModal() {
+  const openBigImgModal = () => {
     document.body.classList.add('modal-open');
     bigPicture.classList.remove('hidden');
     document.addEventListener('keydown', onModalEsc);
     btnCloseModal.addEventListener('click', onClickCloseBtn);
-  }
+  };
 
-  function closeBigImgModal() {
+  closeBigImgModal = () => {
     document.body.classList.remove('modal-open');
     bigPicture.classList.add('hidden');
     document.removeEventListener('keydown', onModalEsc);
     btnCloseModal.removeEventListener('click', onClickCloseBtn);
-  }
+  };
 
   picture.addEventListener('click', (evt) => {
     const target = evt.target.closest('.picture');
     if (target) {
-      createFullScreenImg(target.dataset.id);
-      openBigImgModal();
+      createFullScreenImg(target.dataset.id) // обновляю скрытую картинку и ...
+        .then(openBigImgModal); //...и открываю только после ее обновления
     }
   });
 };
