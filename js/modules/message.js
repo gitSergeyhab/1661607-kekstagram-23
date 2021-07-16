@@ -1,4 +1,4 @@
-import {modalMethods, closeModalFormClases} from './show-modal-form.js';
+import {modalMethods, closeModalFormClasses} from './modal-form.js';
 import {uploadFile} from './form.js';
 import {KEYCODE_ESC} from './setup.js';
 
@@ -27,8 +27,7 @@ const showGetErrorMessage = () => {
 
 let closePopup; // обЪявить до использования
 const showPostMessage = (block, clear = true) => {
-  clear ? modalMethods.close() : closeModalFormClases(); uploadFile.value = ''; // очистиь поля : или просто скрыть и очистить файловый инпут
-
+  clear ? modalMethods.close() : closeModalFormClasses(); uploadFile.value = ''; // очистиь поля : или просто скрыть и очистить файловый инпут
 
   document.body.append(block);
 
@@ -51,6 +50,5 @@ const showPostMessage = (block, clear = true) => {
 
 const showPostSuccessMessage = () => showPostMessage(successMessageBlock);
 const showPostErrorMessage = () => showPostMessage(errorMessageBlock, false);
-
 
 export {showGetErrorMessage, showPostSuccessMessage, showPostErrorMessage};

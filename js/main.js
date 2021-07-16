@@ -1,7 +1,7 @@
 
 import {validateForm} from './modules/validate-form.js';
 import {postData} from './modules/api.js';
-import {showModalForm} from './modules/show-modal-form.js';
+import {showModalForm} from './modules/modal-form.js';
 import {showBigImg} from './modules/show-big-img.js';
 import {changeImgSize} from './modules/scale-image.js';
 import './modules/slider.js';

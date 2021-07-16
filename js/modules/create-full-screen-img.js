@@ -13,7 +13,7 @@ const createFullScreenImg = (id) => {
         alt="${name}"
         width="35" height="35">
     <p class="social__text">${message}</p>
-</li>`;
+  </li>`;
 
   // показ выбранного фото
   const showOnePhoto = (needPhoto) => {
@@ -31,7 +31,7 @@ const createFullScreenImg = (id) => {
     }
   };
   return getData()
-    .then((res) => res.filter((discript) => discript.id === +id)) // фильтр полученных данных по айди
+    .then((results) => results.filter((result) => result.id === +id)) // фильтр полученных данных по айди
     .then(showOnePhoto)
     .catch(showGetErrorMessage);
 };

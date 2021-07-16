@@ -27,7 +27,7 @@ const validateForm = () => {
     return true;
   };
 
-  const checkhashTags = (value) => {
+  const checkHashTags = (value) => {
     const values = value.toLowerCase().trim() // в нижний регистр и обрезать пробелы
       .split(' ').filter((tag) => tag); // разбить и убрать ""
     const tagsGoodCount = values.length <= TAGS_MAX;
@@ -37,7 +37,7 @@ const validateForm = () => {
 
   hashTagInput.addEventListener('input', (evt) => {
     const value = evt.target.value;
-    if(!checkhashTags(value) && value.length > 0) {
+    if(!checkHashTags(value) && value.length > 0) {
       hashTagInput.setCustomValidity(HASHTAG_ERROR_MESSAGE);
     } else {
       hashTagInput.setCustomValidity('');

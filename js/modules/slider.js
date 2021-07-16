@@ -22,7 +22,7 @@ const slider = sliderField.querySelector('.effect-level__slider');
 const uploadEffectsField = document.querySelector('.img-upload__effects');
 const effectLevelValue = document.querySelector('.effect-level__value');
 
-const setClassToloadImg = (className) => uploadImg.className = className;
+const setClassToLoadImg = (className) => uploadImg.className = className;
 
 // начальные настройки слайдера
 noUiSlider.create(slider, {
@@ -57,7 +57,7 @@ slider.noUiSlider.on('update', (___, handle,  values) => {
 
 // обнулить эффекты
 const setDefaultEffect = () => {
-  setClassToloadImg(defaultStyleImg);
+  setClassToLoadImg(defaultStyleImg);
   const inputs = uploadEffectsField.querySelectorAll('input');
   inputs.forEach((input) => input.checked = input.id === defaultEffectId); // выставляю checked только у none
   uploadImg.style.filter = '';
@@ -70,7 +70,7 @@ const changeEffect = (target) => {
   sliderField.style.display = target.id === defaultEffectId ? 'none' : ''; // если выбран none - скрываю, иначе показываю слайдер
   // ... добавляю нужный класс картинке...
   const effect = target.getAttribute('id').split(splitEffect)[1];
-  setClassToloadImg(addedEffect + effect);
+  setClassToLoadImg(addedEffect + effect);
   // меняю эффект в стате ...
   stateEffect = effect;
   // обнавляю настройки слайдера в зависимости от фильтра
@@ -86,6 +86,5 @@ const changeEffect = (target) => {
 };
 
 uploadEffectsField.addEventListener('change', (evt) => changeEffect(evt.target));
-
 
 export {setDefaultEffect, uploadImg};

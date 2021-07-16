@@ -25,7 +25,7 @@ modalMethods.open = () => {
   document.addEventListener('keydown', onEscForm);
 };
 
-const closeModalFormClases = () => {
+const closeModalFormClasses = () => {
   imgOverlay.classList.add(classes.hide);
   document.body.classList.remove(classes.open);
 };
@@ -33,12 +33,11 @@ const closeModalFormClases = () => {
 modalMethods.close = () => {
   setDefaultEffect();
   setDefaultImgScale();
-  closeModalFormClases();
+  closeModalFormClasses();
   btnCloseModal.removeEventListener('click', onCloseBtnForm);
   document.removeEventListener('keydown', onEscForm);
   form.reset();
 };
-
 
 const showModalForm = () => {
   uploadFile.addEventListener('change', () => {
@@ -46,4 +45,4 @@ const showModalForm = () => {
   });
 };
 
-export {showModalForm, modalMethods, closeModalFormClases};
+export {showModalForm, modalMethods, closeModalFormClasses};

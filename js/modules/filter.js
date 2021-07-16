@@ -1,5 +1,5 @@
 import {getData} from './api.js';
-import {createPictureFragment, addPictureFragment} from './create-picture-fragment.js';
+import {createPictureFragment, addPictureFragment} from './picture-fragment.js';
 import {showGetErrorMessage} from './message.js';
 import {getRandomArray, debounce} from './util.js';
 
@@ -21,7 +21,7 @@ const showFilter = () => {
   // все создаваемые из загружаемых даммых картинки
   const images = Array.from(document.images).filter((img) => img.classList.contains('picture__img'));
 
-  // счутчик уже загруженных
+  // счетчик уже загруженных
   let counter = 0;
   const onLoadImgCounter = () => {
     counter++;

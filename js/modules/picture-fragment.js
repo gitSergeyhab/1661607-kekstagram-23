@@ -8,10 +8,10 @@ const cleanPictures = () => {
 };
 
 const createPictureFragment = (pics) => {
-  const fragmentPuctures = document.createDocumentFragment();
-  pics.forEach((pic) => fragmentPuctures.append(createPicture(pic)));
+  const fragmentPictures = document.createDocumentFragment();
+  pics.forEach((pic) => fragmentPictures.append(createPicture(pic)));
   cleanPictures();
-  return fragmentPuctures;
+  return fragmentPictures;
 };
 
 const addPictureFragment = (response) => picture.append(response);
