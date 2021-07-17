@@ -8,8 +8,6 @@ const getRandomInt = (min, max) => {
   return Math.round(Math.random() * (max - min) + min);
 };
 
-const checkLength = (string, maxLength) => string.length <= maxLength;
-
 const getRandomArray = (array) => {
   const numbersArr = [];
   while (numbersArr.length < LENGTH_RANDOM_ARRAY) {
@@ -42,4 +40,4 @@ const debounce = (callback, timeoutDelay = 500) => {
   };
 };
 
-export {getRandomInt, checkLength, getRandomArray, debounce};
+export {getRandomInt, getRandomArray, debounce};

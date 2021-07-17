@@ -25,8 +25,7 @@ const createFullScreenImg = (id) => {
       bigPicture.querySelector('.social__caption').innerHTML = description;
 
       const commentsList = bigPicture.querySelector('.social__comments');
-      const commentsHtml = comments.reduce((acc, elem) => acc + createCommentElement(elem), ''); //все коментарии одной строкой
-      commentsList.innerHTML = commentsHtml;
+      commentsList.innerHTML = comments.reduce((acc, elem) => acc + createCommentElement(elem), '');
       uploadCommentsListener(commentsList);
     }
   };
